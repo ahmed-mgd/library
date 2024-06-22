@@ -28,7 +28,20 @@ myLibrary.forEach((book) => {
 });
 
 const newBookBtn = document.querySelector("#new-button");
+const cancelBtn = document.querySelector("#cancel-button");
+const addBookBtn = document.querySelector("#add-button");
 const newBookDialog = document.querySelector("#new-dialog");
+
 newBookBtn.addEventListener("click", () => {
     newBookDialog.showModal();
-})
+});
+
+cancelBtn.addEventListener("click", (e) => {
+    newBookDialog.close();
+    e.preventDefault();
+});
+
+addBookBtn.addEventListener("click", (e) => {
+    myLibrary.push(new Book(title, author, numPages, read));
+    e.preventDefault();
+});
