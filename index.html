@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Library</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -23,15 +23,17 @@
                     <input type="number" id="pages" name="pages" min="1">
                 </li>
                 <li>
-                    <label for="title">Read:</label>
-                    <input type="radio" id="yes" name="title">
-                    <label for="yes">Yes</label>
-                    <input type="radio" id="no" name="title">
-                    <label for="no">No</label>
+                    <fieldset>
+                        <legend>Read?</legend>
+                        <input type="radio" id="yes" name="read_status">
+                        <label for="yes">Yes</label>
+                        <input type="radio" id="no" name="read_status">
+                        <label for="no">No</label>
+                    </fieldset>
                 </li>
             </ul>
             <button id="add-button" type="submit">Add book</button>
-            <button id="cancel-button">Cancel</button>
+            <button id="cancel-button" type="button">Cancel</button>
         </form>
     </dialog>
     <table id="main">
@@ -40,6 +42,7 @@
             <th>Author</th>
             <th>Pages</th>
             <th>Read?</th>
+            <th></th>
         </tr>
     </table>
     <button id="new-button">NEW BOOK</button>

@@ -11,6 +11,10 @@ function addBookToLibrary(title, author, numPages, read) {
     myLibrary.push(new Book(title, author, numPages, read));
 }
 
+function toggleReadStatus(book) {
+    book.read = !book.read;
+}
+
 // Manually added books
 addBookToLibrary("Harry Potter", "JK Rowling", "295", false);
 addBookToLibrary("A Fault in Our Stars", "John Blue", "295", true);
@@ -24,6 +28,17 @@ myLibrary.forEach((book) => {
         data.textContent = attribute;
         row.appendChild(data);
     });
+    const deleteContainer = document.createElement("td");
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+    deleteContainer.appendChild(deleteBtn);
+    row.appendChild(deleteContainer);
+    deleteBtn.addEventListener("click", () => {
+        const index = myLibrary.indexOf(book);
+        myLibrary.splice(index, 1);
+        row.remove();
+    })
+
     table.appendChild(row);
 });
 
