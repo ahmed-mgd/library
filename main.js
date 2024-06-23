@@ -34,6 +34,7 @@ function outputBookToTable(book) {
     const deleteContainer = document.createElement("td");
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
+    deleteBtn.setAttribute("id", "delete-button");
     deleteContainer.appendChild(deleteBtn);
     row.appendChild(deleteContainer);
     deleteBtn.addEventListener("click", () => {
@@ -53,7 +54,7 @@ function toggleReadStatus(book) {
 addBookToLibrary("Harry Potter", "JK Rowling", "295", false);
 addBookToLibrary("A Fault in Our Stars", "John Blue", "295", true);
 
-const table = document.querySelector("#main");
+const table = document.querySelector("#data-table");
 myLibrary.forEach((book) => {
     outputBookToTable(book);
 });
@@ -71,15 +72,19 @@ newBookBtn.addEventListener("click", () => {
     newBookDialog.showModal();
 });
 
-cancelBtn.addEventListener("click", (e) => {
+cancelBtn.addEventListener("click", () => {
     newBookDialog.close();
-    e.preventDefault();
 });
 
-addBookBtn.addEventListener("click", (e) => {
+addBookBtn.addEventListener("click", () => {
     const selectedReadStatus = document.querySelector("input[name='read_status']:checked");
     const readStatus = selectedReadStatus.value === "yes";
     addBookToLibrary(titleField.value, author.value, pagesField.value, readStatus);
     outputBookToTable(myLibrary[myLibrary.length - 1]);
+    newBookDialog.close();
+});
+
+const form = document.querySelector("#new-form");
+form.addEventListener("submit", (e) => {
     e.preventDefault();
 });
