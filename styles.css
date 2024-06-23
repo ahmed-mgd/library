@@ -23,6 +23,11 @@
     padding: 0.8rem;
 }
 
+#form-content input {
+    max-height: 1.5rem;
+    font-size: 18px;
+}
+
 #header {
     position: absolute;
     width: 100%;
@@ -79,4 +84,8 @@ button {
 
 #delete-button {
     background-color: rgba(255, 0, 0, 0.493);
+}
+
+#cancel-button {
+    color: black;
 }
